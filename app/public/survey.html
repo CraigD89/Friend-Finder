@@ -240,6 +240,8 @@
                     </div>
                     <div class="modal-body">
                         <!-- Append photo and name here -->
+                        <h2 id="matchName"></h2>
+                        <img id="matchImage" src="">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -281,6 +283,7 @@
             $("#resultsBtn").click(function () {
                 console.log("Button clicked");
 
+                //Values of user's inputs
                 var input = {
                     name: $("#name").val(),
                     imageURL: $("#imageURL").val(),
@@ -298,8 +301,17 @@
                     ]
 
                 };
-                console.log("Inputs are ", JSON.stringify(input));
+                console.log("New user's inputs are ", JSON.stringify(input));
+
+                //Push user's inputs into friend arrays
+                $.post("/api/friends", input).then(function (data) {
+                    console.log("New user's data is ", data);
+
+
+                });
+
             });
+
 
 
         });
