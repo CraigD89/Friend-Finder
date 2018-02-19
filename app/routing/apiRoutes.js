@@ -1,11 +1,12 @@
 var path = require("path");
 
-//Links friends array
+//Links friend arrays
 var friends = require("../data/friends.js");
 
 module.exports = function(app) {
-
-app.get("/api/friends", function(req, res) {
+  
+  //Accesses friend arrays
+  app.get("/api/friends", function(req, res) {
     res.json(friends);
   });
 
