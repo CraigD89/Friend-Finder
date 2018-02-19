@@ -215,14 +215,6 @@
             </div>
         </form>
 
-
-
-
-
-
-
-
-
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="resultsBtn">
             Results
@@ -262,9 +254,6 @@
         </footer>
     </div>
 
-
-
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -299,7 +288,6 @@
                         $("#q9").val(),
                         $("#q10").val()
                     ]
-
                 };
                 console.log("New user's inputs are ", JSON.stringify(input));
 
@@ -307,16 +295,16 @@
                 $.post("/api/friends", input).then(function (data) {
                     console.log("New user's data is ", data);
 
+                    //Push match name and image into modal pop up
+                    $("#matchName").text(data.name);
+                    $("#matchImage").attr("src", data.imageURL);
 
                 });
 
             });
 
-
-
         });
     </script>
 
 </body>
-
 </html>
