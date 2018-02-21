@@ -248,7 +248,7 @@
             <div class="container">
                 <p>
                     <a href="/api/friends">API Friends List</a> |
-                    <a href="https://github.com/CraigD89/Friend-Finder">GitHub Repo</a>
+                    <a href="https://github.com/CraigD89/Friend-Finder">GitHub</a>
                 </p>
             </div>
         </footer>
@@ -292,14 +292,15 @@
                 console.log("New user's inputs are ", JSON.stringify(input));
 
                 //Push user's inputs into friend arrays
-                $.post("/api/friends", input).then(function (data) {
-                    console.log("New user's data is ", data);
+                $.post("/api/friends", input)
+                    .then(function (data) {
+                        console.log("New user's data is ", data);
 
-                    //Push match name and image into modal pop up
-                    $("#matchName").text(data.name);
-                    $("#matchImage").attr("src", data.imageURL);
+                        //Push match name and image into modal pop up
+                        $("#matchName").html(data.name);
+                        $("#matchImage").attr("src", data.imageURL);
 
-                });
+                    });
 
             });
 
@@ -307,4 +308,5 @@
     </script>
 
 </body>
+
 </html>
