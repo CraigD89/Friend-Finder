@@ -215,14 +215,6 @@
             </div>
         </form>
 
-
-
-
-
-
-
-
-
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="resultsBtn">
             Results
@@ -240,6 +232,8 @@
                     </div>
                     <div class="modal-body">
                         <!-- Append photo and name here -->
+                        <h1 id="matchName"></h1>
+                        <img id="matchImage" class="img-fluid" src="">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -254,14 +248,11 @@
             <div class="container">
                 <p>
                     <a href="/api/friends">API Friends List</a> |
-                    <a href="https://github.com/CraigD89/Friend-Finder">GitHub Repo</a>
+                    <a href="https://github.com/CraigD89/Friend-Finder">GitHub</a>
                 </p>
             </div>
         </footer>
     </div>
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -281,6 +272,7 @@
             $("#resultsBtn").click(function () {
                 console.log("Button clicked");
 
+                //Values of user's inputs
                 var input = {
                     name: $("#name").val(),
                     imageURL: $("#imageURL").val(),
@@ -296,11 +288,21 @@
                         $("#q9").val(),
                         $("#q10").val()
                     ]
-
                 };
-                console.log("Inputs are ", JSON.stringify(input));
-            });
+                console.log("New user's inputs are ", JSON.stringify(input));
 
+                //Push user's inputs into friend arrays
+                $.post("/api/friends", input)
+                    .done(function (data) {
+                        console.log("New user's data is ", data); //Not working!
+
+                        //Push match name and image into modal pop up
+                        $("#matchName").html(data.name); //Not working!
+                        $("#matchImage").attr("src", data.imageURL); //Not working!
+
+                    });
+
+            });
 
         });
     </script>
