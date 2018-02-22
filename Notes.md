@@ -19,3 +19,7 @@ To Do:
 - Display match as a modal pop up
 - README.md file
 - Add to portfolio
+
+Current issues:
+- Match works only when all answers are 1
+    - For loops may not be working with match.abs

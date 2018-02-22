@@ -232,8 +232,8 @@
                     </div>
                     <div class="modal-body">
                         <!-- Append photo and name here -->
-                        <h2 id="matchName"></h2>
-                        <img id="matchImage" src="">
+                        <h1 id="matchName"></h1>
+                        <img id="matchImage" class="img-fluid" src="">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -293,12 +293,12 @@
 
                 //Push user's inputs into friend arrays
                 $.post("/api/friends", input)
-                    .then(function (data) {
-                        console.log("New user's data is ", data);
+                    .done(function (data) {
+                        console.log("New user's data is ", data); //Not working!
 
                         //Push match name and image into modal pop up
-                        $("#matchName").html(data.name);
-                        $("#matchImage").attr("src", data.imageURL);
+                        $("#matchName").html(data.name); //Not working!
+                        $("#matchImage").attr("src", data.imageURL); //Not working!
 
                     });
 
