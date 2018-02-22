@@ -25,7 +25,7 @@ module.exports = function(app){
       var scoresDiff = 0;
       //Calculate comparison of user's inputs to friend arrays
       for(var x=0; x<newFriendScore.length; x++){
-        scoresDiff += (Math.abs(parseInt(friends[i].scores[x]) - parseInt(newFriendScore[x])));
+        scoresDiff += (Math.abs(parseFloat(friends[i].scores[x]) - parseFloat(newFriendScore[x])));
       }
 
       //Push results into score array

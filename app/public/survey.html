@@ -294,11 +294,11 @@
                 //Push user's inputs into friend arrays
                 $.post("/api/friends", input)
                     .done(function (data) {
-                        console.log("New user's data is ", data); //Not working!
+                        console.log("Match data is ", data);
 
                         //Push match name and image into modal pop up
-                        $("#matchName").html(data.name); //Not working!
-                        $("#matchImage").attr("src", data.imageURL); //Not working!
+                        $("#matchName").html(data.name);
+                        $("#matchImage").attr("src", data.imageURL);
 
                     });
 
