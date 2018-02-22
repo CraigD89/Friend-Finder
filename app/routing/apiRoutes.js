@@ -4,46 +4,42 @@ var path = require("path");
 var friends = require("../data/friends.js");
 // console.log("Friends are ", friends);
 
-module.exports = function(app){
+module.exports = function(app) {
   //Accesses friend arrays
-  app.get('/api/friends', function(req,res){
+  app.get("/api/friends", function(req, res) {
     res.json(friends);
-    console.log("App.get success ", friends); //Responds on /api/friends page
+    // console.log("App.get success ", friends);
   });
 
-    //Add user input to friend arrays
-  app.post('/api/friends', function(req,res){
+  //Add user input to friend arrays
+  app.post("/api/friends", function(req, res) {
+
     //Sets up comparison between user input and friend arrays
-    var newFriendScore = req.body.scores;
-    console.log("User input scores ", newFriendScore);
+    var matchScore = req.body.scores;
     var scoreArr = [];
-    var friendCount = 0;
-    var topMatch = 0;
+    var bestMatch = 0;
 
     //Go through friend arrays
-    for(var i=0; i<friends.length; i++){
-      var scoresDiff = 0;
+    for (var i = 0; i < friends.length; i++) {
+      var scoreDifference = 0;
       //Calculate comparison of user's inputs to friend arrays
-      for(var x=0; x<newFriendScore.length; x++){
-        scoresDiff += (Math.abs(parseFloat(friends[i].scores[x]) - parseFloat(newFriendScore[x])));
+      for (var x = 0; x < matchScore.length; x++) {
+        scoreDifference += Math.abs(parseFloat(friends[i].scores[x]) - parseFloat(matchScore[x]));
       }
 
       //Push results into score array
-      scoreArr.push(scoresDiff);
+      scoreArr.push(scoreDifference);
     }
 
     //Calculate best friend match
-    for(var i=0; i<scoreArr.length; i++){
-      if(scoreArr[i] <= scoreArr[topMatch]){
-        topMatch = i;
+    for (var i = 0; i < scoreArr.length; i++) {
+      if (scoreArr[i] <= scoreArr[bestMatch]) {
+        bestMatch = i;
       }
     }
 
-    //Returns topMatch data
-    var bestFriend = friends[topMatch];
+    //Returns bestMatch data
+    var bestFriend = friends[bestMatch];
     res.json(bestFriend);
-
-    //Add user input into the friend arrays
-    friends.push(req.body);
   });
 };
