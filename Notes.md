@@ -18,7 +18,4 @@ To Do:
 - Put user's answers into an array for comparisons (see instructions) X
 - Display match as a modal pop up X
 - README.md file
-- Add to portfolio
-
-Issues:
-- Some combinations of inputs result in no match
+- Add to portfolio X
