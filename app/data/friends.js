@@ -19,7 +19,7 @@ var friendArr = [
     
     {
 		name: "Trixie",
-		imageURL: "http://www.catster.com/wp-content/uploads/2017/09/A-tabby-cat-with-an-ID-collar-on.jpg",
+		imageURL: "https://www.catster.com/wp-content/uploads/2017/09/A-tabby-cat-with-an-ID-collar-on.jpg",
 		scores: [
 			"1",
 			"2",
@@ -53,7 +53,7 @@ var friendArr = [
 
     {
 		name: "Michael",
-		imageURL: "http://www.insidedogsworld.com/wp-content/uploads/2017/07/German-Shepherd-Standard-Coat-GSC-1000x575-1-1-1-1.jpg",
+		imageURL: "https://www.insidedogsworld.com/wp-content/uploads/2017/07/German-Shepherd-Standard-Coat-GSC-1000x575-1-1-1-1.jpg",
 		scores: [
 			"1",
 			"2",
