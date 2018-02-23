@@ -2,13 +2,11 @@ var path = require("path");
 
 //Links friend arrays
 var friends = require("../data/friends.js");
-// console.log("Friends are ", friends);
 
 module.exports = function(app) {
   //Accesses friend arrays
   app.get("/api/friends", function(req, res) {
     res.json(friends);
-    // console.log("App.get success ", friends);
   });
 
   //Add user input to friend arrays
@@ -38,7 +36,7 @@ module.exports = function(app) {
       }
     }
 
-    //Returns bestMatch data
+    //Returns match data
     var bestFriend = friends[bestMatch];
     res.json(bestFriend);
   });
